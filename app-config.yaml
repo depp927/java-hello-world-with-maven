@@ -1,0 +1,25 @@
+# app-config.yaml
+environments:
+  dev:
+    branch: "dev"
+    harbor_registry: "harbor.dev.yourdomain.com"
+    harbor_project: "dev-apps"
+    image_name: "my-app-dev"
+    build_command: "npm run build:dev" # 或者 mvn clean package -Pdev 等
+    credentials_id: "harbor-dev-creds" # Jenkins 中配置的 Harbor 凭据 ID
+
+  test:
+    branch: "test"
+    harbor_registry: "harbor.test.yourdomain.com"
+    harbor_project: "test-apps"
+    image_name: "my-app-test"
+    build_command: "npm run build:test"
+    credentials_id: "harbor-test-creds"
+
+  prod:
+    branch: "main" # 对应 main 分支
+    harbor_registry: "harbor.prod.yourdomain.com"
+    harbor_project: "prod-apps"
+    image_name: "my-app-prod"
+    build_command: "npm run build:prod"
+    credentials_id: "harbor-prod-creds"
